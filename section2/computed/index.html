@@ -34,6 +34,18 @@
                 output: function() {
                     return this.counter <= 5 ? "Smaller than 5" : "Bigger than 5";
                 }
+            },
+
+            watch: {
+                // Watching the counter data property
+                // Each time it changes I 'm gonna reset it.
+                // YOU CAN USE WATCH INSTEAD OF COMPUTED FOR ASYNCHRONOUS TASKS
+                counter: function(newValue) {
+                    var vi = this;
+                    setTimeout(function() {
+                        vi.counter = 0;
+                    }, 2000)
+                }
             }
         })
     </script>
