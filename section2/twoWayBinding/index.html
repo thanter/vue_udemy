@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="myApp">
+        <input type="text" v-model="paragraph">
+
+        <p>
+            {{ paragraph }}
+        </p>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el: "#myApp",
+
+            data: {
+                paragraph: "Hello World!",
+            }
+        })
+    </script>
+</body>
+</html>

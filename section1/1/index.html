@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="myApp">
+        <p>
+            <input type="text" :value="paragraph" @input="changeTitle">
+            <br>
+
+            {{ paragraph }}
+            <br>
+
+            <!-- Using method to output value -->
+            {{ sayHello() }}
+            <br>
+
+            <!-- directives -->
+            <a v-bind:href="link" target="_blank">Google link</a>
+
+            <!-- Rendering raw html -->
+            <p v-html="rawLink"></p>
+        </p>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el: "#myApp",
+
+            data: {
+                paragraph: "Hello World!",
+                link: "https://google.com",
+                rawLink: "<a target='_blank' href='https://google.com'>Another google</a>"
+            },
+
+            methods: {
+                changeTitle: function(event) {
+                    this.paragraph = event.target.value;
+                },
+
+                sayHello: function() {
+                    return "Hello!";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
