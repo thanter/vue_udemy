@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="myApp">
+        <button @click="counter++">Increase</button>
+        <button @click="counter--">Decrease</button>
+        <br>
+        Current value: {{ counter }}
+
+        <hr><br>
+        Output: {{ output }}
+    </div>
+
+    <script>
+        let v = new Vue({
+            el: "#myApp",
+
+            data: {
+                counter: 0
+            },
+
+            // We could use a normal method to calculate the output, instead of a
+            // computed property BUT the main difference is that the method will be
+            // executed every time something changes. With computed Vue keeps track
+            // of the dependency (counter) and will run the method only when the
+            // counter changes.
+            computed: {
+                output: function() {
+                    return this.counter <= 5 ? "Smaller than 5" : "Bigger than 5";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
